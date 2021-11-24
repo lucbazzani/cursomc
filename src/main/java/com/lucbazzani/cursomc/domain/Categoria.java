@@ -14,7 +14,7 @@ public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String nome;
 
     @JsonManagedReference
     @ManyToMany(mappedBy = "categorias")
@@ -23,9 +23,9 @@ public class Categoria implements Serializable {
     public Categoria() {
     }
 
-    public Categoria(Integer id, String name) {
+    public Categoria(Integer id, String nome) {
         this.id = id;
-        this.name = name;
+        this.nome = nome;
     }
 
     public Integer getId() {
@@ -36,12 +36,12 @@ public class Categoria implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Produto> getProdutos() {
@@ -53,11 +53,11 @@ public class Categoria implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Categoria)) return false;
         Categoria categoria = (Categoria) o;
-        return getId().equals(categoria.getId()) && getName().equals(categoria.getName());
+        return getId().equals(categoria.getId()) && getNome().equals(categoria.getNome());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getId(), getNome());
     }
 }
